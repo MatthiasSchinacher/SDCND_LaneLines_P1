@@ -72,7 +72,7 @@ of the linear regression approach.
 Also, I got the impression, that sometimes the actual lane line was not really
 a mathematical line and thus the computed line did not really "fit".
 
-### 3. Possible improvements
+### Possible improvements
 What one could always do of course is to experiment with additional combinations
 of parameter values.
 But what I personally really be interested in is 2 improvements:
