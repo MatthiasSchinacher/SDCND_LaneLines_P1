@@ -7,6 +7,8 @@ project assignment within udacity's Self Driving Car Nano Degree
 The stated goal was to implement a pipeline for lane finding on
 a road for videos shot from the front of the car.
 
+The implementation in the actual [notebook can be found here](P1.ipynb)
+
 ### Reflection
 The structure of the code deliverable was fixed to be a python- jupyter
 notebook, where the basic flow was provided. The actual coding required
@@ -45,6 +47,9 @@ This did not work very well, thus I ended up using a more complex approach.
 Again I use criteria to decide whether a given input- line is a "left" or "right"
 line; but now I'm using linear regression for the end- points of the input- lines
 to compute the 2 output lines.
+To compensate for partial lines of different length, the values are weighted
+according to the length of the lines regarding the computation of the
+linear regression parameters.
 
 ###### Criteria for "left" or "right"
 An input- line must have a minimum slope (absolute value)
@@ -53,11 +58,23 @@ must be negative and the average x- value of the two endpoints must be smaller
 than xmax/2 (xmax being the x- value for the right image border).
 Likewise, a "right" input-line must have a positive slope and the x-values
 of the endpoints must average > xmax/2.
-Additionally the 2 endpoints of the input-line must differ 2 ticks in each direction,
-x and y, to be considered.
+Additionally the 2 endpoints of the input-line must differ a minimum number
+of ticks in each direction, x and y, to be considered.
 
-### 2. Identify potential shortcomings with your current pipeline
-TODO
+### Potential shortcomings with the current pipeline
+The current pipeline has some difficulties with lane lines that are not
+solid, especially when very small partial lines - almost dots or small lines
+that are orthogonal to the actual lane line - are present.
 
-### 3. Suggest possible improvements to your pipeline
-TODO
+I guess this might be due to imperfect pipeline parameters or might be a result
+of the linear regression approach.
+
+Also, I got the impression, that sometimes the actual lane line was not really
+a mathematical line and thus the computed line did not really "fit".
+
+### 3. Possible improvements
+What one could always do of course is to experiment with additional combinations
+of parameter values.
+But what I personally really be interested in is 2 improvements:
+* using a higher order regression; of course this would not be strictly identify a lane "line"
+* using somehow information from the respective previous picture as input; this would of course require a major code refactoring :-)  

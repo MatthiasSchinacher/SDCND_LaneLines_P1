@@ -3,9 +3,7 @@ This project is my submission/ implementation for an assignment
 within udacity's Self Driving Car Nano Degree (SDCND).
 
 The actual report/ writeup can be found [here](Writeup.md).
-
-## TODO
-* Finish project/ assignment including documentation and submit.
+The notebook, which contains the actual implementation, [is here](P1.ipynb).
 
 ## LICENSE
 I include the original LICENSE from udacity, since the contents of this
